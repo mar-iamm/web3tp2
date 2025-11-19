@@ -1,0 +1,82 @@
+body {
+    background-image: url("/tp2/assets/img/background.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #0B1315;
+    position: relative;
+    overflow: hidden;
+}
+
+.basdroite, .basgauche,
+.milieudroite, .milieugauche,
+.hautdroite, .hautgauche {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.basdroite img, .basgauche img,
+.milieudroite img, .milieugauche img,
+.hautdroite img, .hautgauche img {
+    width: auto;
+    height: auto;
+    max-width: 1500px;
+}
+
+.personnage {
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+.hautgauche img {
+    transform-origin: 50% 85%;
+}
+
+.hautdroite img {
+    transform-origin: 50% 85%;
+}
+
+.milieugauche img {
+    transform-origin: 50% 85%;
+}
+
+.milieudroite img {
+    transform-origin: 50% 85%;
+}
+
+.basgauche img {
+    transform-origin: 50% 100%;
+}
+
+.basdroite img {
+    transform-origin: 50% 100%;
+}
+
+.hautgauche {
+    transform: translate(calc(-26% - 250px), calc(40% - 300px));
+}
+
+.hautdroite {
+    transform: translate(calc(-65% + 250px), calc(43% - 300px));
+}
+
+.milieugauche {
+    transform: translate(calc(-22% - 300px), 5%);
+}
+
+.milieudroite {
+    transform: translate(calc(-71% + 300px), 5%);
+}
+
+.basgauche {
+    transform: translate(calc(-30% - 200px), calc(-21% + 250px));
+}
+
+.basdroite {
+    transform: translate(calc(-63% + 200px), calc(-20% + 250px));
+}
