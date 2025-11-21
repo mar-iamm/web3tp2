@@ -80,3 +80,19 @@ body {
 .basdroite {
     transform: translate(calc(-63% + 200px), calc(-20% + 250px));
 }
+
+.grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.grid div {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 30px;
+    text-align: center;
+}
