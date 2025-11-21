@@ -3,96 +3,151 @@ body {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
     background-color: #0B1315;
-    position: relative;
     overflow: hidden;
 }
 
-.basdroite, .basgauche,
-.milieudroite, .milieugauche,
-.hautdroite, .hautgauche {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("/tp2/assets/img/background.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
 }
 
-.basdroite img, .basgauche img,
-.milieudroite img, .milieugauche img,
-.hautdroite img, .hautgauche img {
-    width: auto;
-    height: auto;
-    max-width: 1500px;
-}
 
 .personnage {
-    position: fixed;
-    top: 45%;
+    position: absolute;
     left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-}
-.hautgauche img {
-    transform-origin: 50% 85%;
+    bottom: 25px;
+    transform: translateX(-50%);
+    z-index: 1;
 }
 
-.hautdroite img {
-    transform-origin: 50% 85%;
+#personnage {
+    position: relative;
+    width: auto;
+    height: auto;
+    z-index: 2;
 }
 
-.milieugauche img {
-    transform-origin: 50% 85%;
+
+#basdroite, #basgauche,
+#milieudroite, #milieugauche,
+#hautdroite, #hautgauche {
+    position: absolute;
+    width: 25vw;
 }
 
-.milieudroite img {
-    transform-origin: 50% 85%;
+#hautgauche  { transform-origin: 100% 100%; }
+#hautdroite  { transform-origin: 0% 100%; }
+#milieugauche{ transform-origin: 100% 100%; }
+#milieudroite{ transform-origin: 0% 100%; }
+#basgauche   { transform-origin: 100% 100%; }
+#basdroite   { transform-origin: 0% 100%; }
+
+#hautgauche {
+    right: 60%;
+    bottom: 80%;
 }
 
-.basgauche img {
-    transform-origin: 50% 100%;
+#hautdroite {
+    left: 63%;
+    bottom: 80%;
 }
 
-.basdroite img {
-    transform-origin: 50% 100%;
+#milieugauche {
+    right: 60%;
+    bottom: 50%;
 }
 
-.hautgauche {
-    transform: translate(calc(-26% - 250px), calc(40% - 300px));
+#milieudroite {
+    left: 60%;
+    bottom: 50%;
 }
 
-.hautdroite {
-    transform: translate(calc(-65% + 250px), calc(43% - 300px));
+#basgauche {
+    right: 50%;
+    bottom: 5%;
 }
 
-.milieugauche {
-    transform: translate(calc(-22% - 300px), 5%);
+#basdroite {
+    left: 50%;
+    bottom: 5%;
 }
-
-.milieudroite {
-    transform: translate(calc(-71% + 300px), 5%);
-}
-
-.basgauche {
-    transform: translate(calc(-30% - 200px), calc(-21% + 250px));
-}
-
-.basdroite {
-    transform: translate(calc(-63% + 200px), calc(-20% + 250px));
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    gap: 10px;
-    justify-content: space-around;
-    margin-top: 20px;
-}
-
-.grid div {
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 20px;
+/* STYLE DES BLOCS PLACEHOLDERS */
+.placeholder {
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 10px;
-    font-size: 30px;
+    padding: 25px;
+    margin-bottom: 15px;
     text-align: center;
+    color: white;
+    font-size: 1.2rem;
 }
+
+.ui-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* PLUS haut que tout ton personnage */
+}
+
+/* ESPACE POUR LE PERSONNAGE */
+.content-layout {
+    margin-top: 80px;
+}
+
+/* COLONNE CENTRALE : GRID INTERNE */
+.center-col {
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    gap: 20px;
+}
+
+/* GRILLE DU BAS AU CENTRE */
+.bottom-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+/* COLONNE DROITE : ZDOG HAUT, RESTE BAS */
+.right-col {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.right-bottom {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* COLONNE GAUCHE : ICÔNES ET SLIDERS EN BAS */
+.left-col {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.left-bottom {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.personnage,
+.personnage img {
+    pointer-events: none;
+}
+
