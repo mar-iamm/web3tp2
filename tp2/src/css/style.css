@@ -30,7 +30,7 @@ body::before {
 
 #personnage {
     position: relative;
-    width: auto;
+    width: 5.5vw;
     height: auto;
     z-index: 2;
 }
@@ -79,22 +79,21 @@ body::before {
     left: 50%;
     bottom: 5%;
 }
+
 /* STYLE DES BLOCS PLACEHOLDERS */
 .placeholder {
-    background-color: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
+    background-color: black;
+    border: white 1px solid;
+    border-radius: 5px;
     padding: 25px;
     margin-bottom: 15px;
     text-align: center;
     color: white;
     font-size: 1.2rem;
+    z-index: 1000;
 }
 
 .ui-layer {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     z-index: 1000; /* PLUS haut que tout ton personnage */
 }
@@ -150,4 +149,12 @@ body::before {
 .personnage img {
     pointer-events: none;
 }
+
+
+
+
+
+
+
+
 
