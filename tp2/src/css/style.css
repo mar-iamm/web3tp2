@@ -1,3 +1,7 @@
+html, body {
+    height: 100%;
+}
+
 body {
     background-image: url("/tp2/assets/img/background.png");
     background-size: contain;
@@ -6,7 +10,6 @@ body {
     background-color: #0B1315;
     overflow: hidden;
 }
-
 
 body::before {
     content: "";
@@ -19,7 +22,7 @@ body::before {
     z-index: -1;
 }
 
-
+/* PERSONNAGE */
 .personnage {
     position: absolute;
     left: 50%;
@@ -35,7 +38,6 @@ body::before {
     z-index: 2;
 }
 
-
 #basdroite, #basgauche,
 #milieudroite, #milieugauche,
 #hautdroite, #hautgauche {
@@ -43,47 +45,26 @@ body::before {
     width: 25vw;
 }
 
+/* transform-origins */
 #hautgauche  { transform-origin: 100% 100%; }
-#hautdroite  { transform-origin: 0% 100%; }
+#hautdroite  { transform-origin:   0% 100%; }
 #milieugauche{ transform-origin: 100% 100%; }
-#milieudroite{ transform-origin: 0% 100%; }
+#milieudroite{ transform-origin:   0% 100%; }
 #basgauche   { transform-origin: 100% 100%; }
-#basdroite   { transform-origin: 0% 100%; }
+#basdroite   { transform-origin:   0% 100%; }
 
-#hautgauche {
-    right: 60%;
-    bottom: 80%;
-}
+/* positions des ailes */
+#hautgauche { right: 60%; bottom: 80%; }
+#hautdroite { left: 63%; bottom: 80%; }
+#milieugauche { right: 60%; bottom: 50%; }
+#milieudroite { left: 60%; bottom: 50%; }
+#basgauche { right: 50%; bottom: 5%; }
+#basdroite { left: 50%; bottom: 5%; }
 
-#hautdroite {
-    left: 63%;
-    bottom: 80%;
-}
-
-#milieugauche {
-    right: 60%;
-    bottom: 50%;
-}
-
-#milieudroite {
-    left: 60%;
-    bottom: 50%;
-}
-
-#basgauche {
-    right: 50%;
-    bottom: 5%;
-}
-
-#basdroite {
-    left: 50%;
-    bottom: 5%;
-}
-
-/* STYLE DES BLOCS PLACEHOLDERS */
+/* PLACEHOLDERS */
 .placeholder {
     background-color: black;
-    border: white 1px solid;
+    border: 1px solid white;
     border-radius: 5px;
     padding: 25px;
     margin-bottom: 15px;
@@ -93,51 +74,40 @@ body::before {
     z-index: 1000;
 }
 
+/* === CORRECTION : couche supérieure pleine hauteur === */
 .ui-layer {
     width: 100%;
-    z-index: 1000; /* PLUS haut que tout ton personnage */
+    height: 100vh;         /* 🔥 pleine hauteur */
+    display: flex;
 }
 
-/* ESPACE POUR LE PERSONNAGE */
-.content-layout {
-    margin-top: 80px;
-}
-
-/* COLONNE CENTRALE : GRID INTERNE */
-.center-col {
-    display: grid;
-    grid-template-rows: auto auto auto auto;
-    gap: 20px;
-}
-
-/* GRILLE DU BAS AU CENTRE */
-.bottom-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-}
-
-/* COLONNE DROITE : ZDOG HAUT, RESTE BAS */
-.right-col {
+/* === NOUVEAU : étire tout le container intérieur === */
+.full-height {
+    flex: 1;
     display: flex;
     flex-direction: column;
+}
+
+.full-height-row {
+    height: 100vh;     /* 🔥 Force toute la rangée à mesurer la hauteur de l’écran */
+    display: flex;     /* Nécessaire pour que les colonnes s’étirent */
+}
+
+/* La rangée Bootstrap doit aussi s'étirer */
+.content-layout .row {
+    flex: 1;
     height: 100%;
 }
 
-.right-bottom {
-    margin-top: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-/* COLONNE GAUCHE : ICÔNES ET SLIDERS EN BAS */
+/* Colonnes latérales */
+.right-col,
 .left-col {
     display: flex;
     flex-direction: column;
     height: 100%;
 }
 
+.right-bottom,
 .left-bottom {
     margin-top: auto;
     display: flex;
@@ -145,32 +115,55 @@ body::before {
     gap: 15px;
 }
 
-.personnage,
-.personnage img {
-    pointer-events: none;
+/* Colonne centrale : flexible vertical */
+.center-col {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
-/* MODULE BINAIRE - N’AFFECTE PAS LES AUTRES PLACEHOLDERS */
+/* --- SECTIONS DU BAS (fixées au bas) --- */
+.bottom-sections {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* GRILLES */
+.map-graph-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    min-height: 200px; 
+}
+
+.map-graph-row > .placeholder {
+    height: 100%;
+    display: flex;
+}
+
+.bottom-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    height: auto;
+}
+
+/* MODULE BINAIRE */
 .placeholder .binary-module * {
     font-family: 'Share Tech Mono', monospace;
 }
 
-.placeholder .binary-module {
-    color: white;
-}
-
-/* INPUT */
 .placeholder .binary-module input[type=text] {
     background-color: rgb(10,10,10);
     margin-bottom: 20px;
     width: 100%;
     border: 1px solid white;
     padding: 5px;
-    filter: grayscale(1);
     color: white;
 }
 
-/* BUTTON */
 .placeholder .binary-module button {
     background-color: rgb(10,10,10);
     border: 1px solid white;
@@ -179,21 +172,18 @@ body::before {
     color: white;
 }
 
-/* LAYOUT */
 .placeholder .binary-module .process {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap: 10px;
+    gap: 15px;
 }
 
 .placeholder .binary-module .code {
     font-size: 14px;
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
+    gap: 15px;
 }
 
-/* CASES */
 .placeholder .binary-module .adres,
 .placeholder .binary-module .code > div {
     border: 1px dashed rgb(150,150,150);
@@ -208,7 +198,6 @@ body::before {
     padding: 5px;
 }
 
-/* HIGHLIGHTS */
 .placeholder .binary-module .active {
     color: #67B2D8;
 }
@@ -218,11 +207,20 @@ body::before {
     color: rgb(10,10,10);
 }
 
+#carte {
+    width: 100%;
+    height: 200px;
+    border-radius: 20px;
+    overflow: hidden;
+}
 
+.maplibregl-control-container {
+    display: none;
+}
 
-
-
-
-
-
+.chart-container {
+    width: 100%;
+    height: 200px; /* ajuste selon ta hauteur souhaitée */
+    position: relative;
+}
 
