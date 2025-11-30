@@ -22,7 +22,6 @@ body::before {
     z-index: -1;
 }
 
-/* PERSONNAGE */
 .personnage {
     position: absolute;
     left: 50%;
@@ -45,7 +44,6 @@ body::before {
     width: 25vw;
 }
 
-/* transform-origins */
 #hautgauche  { transform-origin: 100% 100%; }
 #hautdroite  { transform-origin:   0% 100%; }
 #milieugauche{ transform-origin: 100% 100%; }
@@ -53,7 +51,6 @@ body::before {
 #basgauche   { transform-origin: 100% 100%; }
 #basdroite   { transform-origin:   0% 100%; }
 
-/* positions des ailes */
 #hautgauche { right: 60%; bottom: 80%; }
 #hautdroite { left: 63%; bottom: 80%; }
 #milieugauche { right: 60%; bottom: 50%; }
@@ -61,7 +58,6 @@ body::before {
 #basgauche { right: 50%; bottom: 5%; }
 #basdroite { left: 50%; bottom: 5%; }
 
-/* PLACEHOLDERS */
 .placeholder {
     background-color: black;
     border: 1px solid white;
@@ -74,14 +70,12 @@ body::before {
     z-index: 1000;
 }
 
-/* === CORRECTION : couche supérieure pleine hauteur === */
 .ui-layer {
     width: 100%;
-    height: 100vh;         /* 🔥 pleine hauteur */
+    height: 100vh;
     display: flex;
 }
 
-/* === NOUVEAU : étire tout le container intérieur === */
 .full-height {
     flex: 1;
     display: flex;
@@ -89,17 +83,15 @@ body::before {
 }
 
 .full-height-row {
-    height: 100vh;     /* 🔥 Force toute la rangée à mesurer la hauteur de l’écran */
-    display: flex;     /* Nécessaire pour que les colonnes s’étirent */
+    height: 100vh;
+    display: flex; 
 }
 
-/* La rangée Bootstrap doit aussi s'étirer */
 .content-layout .row {
     flex: 1;
     height: 100%;
 }
 
-/* Colonnes latérales */
 .right-col,
 .left-col {
     display: flex;
@@ -115,14 +107,12 @@ body::before {
     gap: 15px;
 }
 
-/* Colonne centrale : flexible vertical */
 .center-col {
     display: flex;
     flex-direction: column;
     height: 100%;
 }
 
-/* --- SECTIONS DU BAS (fixées au bas) --- */
 .bottom-sections {
     margin-top: auto;
     display: flex;
@@ -130,7 +120,6 @@ body::before {
     gap: 15px;
 }
 
-/* GRILLES */
 .map-graph-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -150,7 +139,6 @@ body::before {
     height: auto;
 }
 
-/* MODULE BINAIRE */
 .placeholder .binary-module * {
     font-family: 'Share Tech Mono', monospace;
 }
@@ -220,7 +208,11 @@ body::before {
 
 .chart-container {
     width: 100%;
-    height: 200px; /* ajuste selon ta hauteur souhaitée */
+    height: 200px;
     position: relative;
 }
 
+.chart-container canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
