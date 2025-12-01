@@ -244,7 +244,7 @@ body::before {
     height: 318px;
 }
 
-.image-title {
+.title {
     font-family: 'Fira Code', monospace !important;
     color: white;
     font-size: 16px;
