@@ -20,7 +20,6 @@ animate("#hautdroite", {
     delay: 150
 });
 
-// Ailes du milieu (battement un peu plus discret)
 animate("#milieugauche", {
     keyframes: [
         { rotate: -5, duration: 10000, easing: "easeInOutSine" },
@@ -41,7 +40,6 @@ animate("#milieudroite", {
     delay: 150
 });
 
-// Ailes du bas (plus léger)
 animate("#basgauche", {
     keyframes: [
         { rotate: -4, duration: 10000, easing: "easeInOutSine" },
@@ -63,12 +61,11 @@ animate("#basdroite", {
 }); 
 
 window.addEventListener("DOMContentLoaded", () => {
-  // Animation d'apparition des blocs UI
-  anime({
+    anime({
     targets: ".placeholder",
     opacity: [0, 1],
     translateY: [25, 0],
-    delay: anime.stagger(120, { start: 400 }), // animation en cascade
+    delay: anime.stagger(120, { start: 400 }),
     duration: 800,
     easing: "easeOutQuad"
   });
