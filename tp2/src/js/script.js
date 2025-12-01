@@ -3,7 +3,7 @@ console.clear();
 class Coder {
 
     static uniqSymbols = null;
-    static speed = 300;     // valeur par défaut
+    static speed = 300;
     static txt = '';
     static time1 = null;
     static time2 = null;
@@ -12,17 +12,14 @@ class Coder {
 
     static init() {
 
-        // input texte
         let inp = document.querySelector('.placeholder .binary-module input[type=text]');
 
-        // slider speed (invisible dans l'UI)
-        // on le crée dynamiquement pour garder le comportement original
         let sp = document.createElement('input');
         sp.type = "range";
         sp.min = 0;
         sp.max = 1000;
         sp.value = 800;
-        sp.style.display = "none"; // ❗️ invisible
+        sp.style.display = "none";
         document.body.appendChild(sp);
 
         let go = () => {
@@ -89,11 +86,9 @@ class Coder {
         space.innerHTML = '';
         original.innerHTML = `<div style="margin-bottom:10px;font-size:16px">Original</div>`;
 
-        // SYMBOLS ONLY
         let symbols = this.createSymbolsBlock();
         space.append(symbols);
 
-        // ORIGINAL TEXT → spans
         [...txt].forEach(character => {
             let block = document.createElement('span');
             block.innerHTML = character;
@@ -111,7 +106,6 @@ class Coder {
             });
         });
 
-        // PLAY / PAUSE
         document.querySelector('.placeholder .binary-module button').onclick = ({ target }) => {
             this.anim = !this.anim;
             if (this.anim) this.animate();

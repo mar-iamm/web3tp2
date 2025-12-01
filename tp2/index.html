@@ -15,6 +15,7 @@
     <script type="importmap">
         {
             "imports": {            
+                "vfx-js": "https://esm.sh/@vfx-js/core",
                 "animejs": "./node_modules/animejs/dist/bundles/anime.esm.min.js",
                 "chart.js/auto": "./node_modules/chart.js/auto/auto.js",
                 "@kurkle/color": "./node_modules/@kurkle/color/dist/color.esm.js"
@@ -22,6 +23,8 @@
         }
     </script>
 
+    <script type="module" src="./src/js/vfx.js"></script>
+    <script src="./src/js/zdog.js" type="module"></script>
     <script src="./src/js/chartjs.js" type="module"></script>
     <script src="./src/js/maplibre.js" type="module" defer></script>
     <script src="./src/js/anime.js" type="module"></script>
@@ -29,6 +32,7 @@
     <script src="./src/js/script.js" defer></script>
 </head>
 
+<script type="module" src="./src/js/tonejs.js"></script>
 <body>
 
     <!-- PERSONNAGE -->
@@ -53,10 +57,15 @@
 
                 <!-- COLONNE GAUCHE -->
                 <div class="col-2 left-col">
-                    <div class="placeholder">Icônes et boutons</div>
+                    <div class="placeholder">
+                        <div class="map-col">
+                            Subject Location
+                            <div id="carte"></div>
+                        </div>
+                    </div>
 
+                    <div class="placeholder">Icônes et boutons</div>
                     <div class="left-bottom">
-                        <div class="placeholder">Icônes</div>
                         <div class="placeholder">Sliders</div>
                     </div>
                 </div>
@@ -70,52 +79,56 @@
                         <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 
                         <div class="binary-module main">
-
                             <div class="top-controls">
-                                <input type="text" value="A sweeping metamorphosis has begun.">
+                                <input type="text" value="A sweeping metamorphosis has begun. Steel yourself and await the signal to attack.">
                                 <button>Play</button>
                             </div>
-
+                        
                             <div class="process">
                                 <div class="code"></div>
                                 <div class="adres"></div>
                             </div>
-
-                        </div>
-
-                    </div>
-
-                    <!-- SECTIONS DU BAS (DOIVENT ÊTRE COLLÉES EN BAS) -->
-                    <div class="bottom-sections">
-                        <div class="map-graph-row">
-                            <div class="placeholder">
-                                <div id="carte"></div>
-                            </div>
-                            <div class="placeholder">
-                                <div class="chart-container">
-                                    <canvas id="graphique"></canvas>
-                                </div>
-                            </div>
-                            
                         </div>
                     </div>
-
                 </div>
 
                 <!-- COLONNE DROITE -->
                 <div class="col-2 right-col">
-                    <div class="placeholder">Zdog + FX</div>
+                 <div class="placeholder image-box">
+                    <div class="image-title">Rei Ayanami</div>
+                        <div class="flip-card" id="rei-card">
+                             <div class="flip-inner">
 
-                    <div class="right-bottom">
-                        <div class="placeholder">Image de visage</div>
-                        <div class="placeholder">Sliders</div>
+                         <!-- Face avant -->
+                         <div class="flip-front">
+                             <img src="./assets/img/rei_ayanami.png" class="img-fluid rei-img">
+                         </div>
+
+                        <!-- Face arrière -->
+                        <div class="flip-back">
+                              <img src="./assets/img/rei_ayanami_black.png" class="img-fluid rei-img">
+                        </div>
                     </div>
                 </div>
-
+            </div>
+            <div class="right-bottom">
+                <div class="placeholder zdog-box">
+                    <div class="image-title">Subject Core</div>
+                    <canvas class="zdog-canvas"></canvas>
+                </div>
             </div>
 
+            <div class="placeholder"> 
+                <div class="graph-col">
+                        <div class="chart-container">
+                            <canvas id="graphique"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+</div>
 
 </body>
 </html>

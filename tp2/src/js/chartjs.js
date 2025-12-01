@@ -38,8 +38,6 @@ if (canvas) {
                     tension: 0.3,
                     pointRadius: 4,
                     pointBackgroundColor: "#ffffff",
-
-                    // 🌟 Même typo appliquée aux points/datasets
                     font: {
                         family: "Fira Code, monospace"
                     }
@@ -59,14 +57,14 @@ if (canvas) {
                     font: { 
                         size: 16, 
                         weight: "700",
-                        family: "Fira Code, monospace" // 🌟 même typo
+                        family: "Fira Code, monospace"
                     }
                 },
                 legend: {
                     labels: { 
                         color: "#ffffff",
                         font: {
-                            family: "Fira Code, monospace" // 🌟 même typo
+                            family: "Fira Code, monospace"
                         }
                     }
                 }
@@ -78,7 +76,7 @@ if (canvas) {
                     ticks: { 
                         color: "#ffffff",
                         font: {
-                            family: "Fira Code, monospace" // 🌟 même typo
+                            family: "Fira Code, monospace"
                         }
                     },
                     grid: { color: "rgba(255,255,255,0.1)" },
@@ -89,7 +87,7 @@ if (canvas) {
                     ticks: { 
                         color: "#ffffff",
                         font: {
-                            family: "Fira Code, monospace" // 🌟 même typo
+                            family: "Fira Code, monospace"
                         }
                     },
                     grid: { color: "rgba(255,255,255,0.1)" },

@@ -132,6 +132,7 @@ body::before {
     display: flex;
 }
 
+
 .bottom-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -140,7 +141,7 @@ body::before {
 }
 
 .placeholder .binary-module * {
-    font-family: 'Share Tech Mono', monospace;
+    font-family: 'Fira Code', monospace;
 }
 
 .placeholder .binary-module input[type=text] {
@@ -197,7 +198,7 @@ body::before {
 
 #carte {
     width: 100%;
-    height: 200px;
+    height: 243px;
     border-radius: 20px;
     overflow: hidden;
 }
@@ -209,8 +210,8 @@ body::before {
 .chart-container {
     width: 100%;
     height: 50%;
-    min-height: 200px; /* Pour éviter que le graphique disparaisse */
-    position: relative; /* Obligatoire pour chart.js */
+    min-height: 200px;
+    position: relative;
 }
 
 .chart-container canvas {
@@ -218,3 +219,110 @@ body::before {
     height: 100% !important;
 }
 
+.right-col .placeholder img {
+    display: block;
+    width: 191px;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
+    margin-left: auto;
+    margin-right: auto;
+    mask-image:
+        linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%),
+        linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
+    mask-composite: intersect;
+
+    -webkit-mask-image:
+        linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%),
+        linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
+    -webkit-mask-composite: intersect;
+}
+
+.image-box {
+    position: relative;
+    padding-top: 30px;
+    height: 318px;
+}
+
+.image-title {
+    font-family: 'Fira Code', monospace !important;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.flip-card {
+    width: 100%;
+    height: 100%;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.flip-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.7s;
+    transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-front,
+.flip-back {
+    position: absolute;
+    width: 100%;
+    object-fit: cover;
+    backface-visibility: hidden;
+    border-radius: 5px;
+}
+
+.flip-back {
+    transform: rotateY(180deg);
+}
+
+.map-col {
+    font-family: 'Fira Code', monospace !important;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+.zdog-box {
+    position: relative;
+    background: black;
+    padding: 30px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 270px;
+
+}
+
+.zdog-box .image-title {
+    font-family: 'Fira Code', monospace !important;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.rei-wrapper {
+    width: 191px;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    mask-image:
+        linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%),
+        linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
+    -webkit-mask-image:
+        linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%),
+        linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
+    mask-composite: intersect;
+    -webkit-mask-composite: intersect;
+    position: relative;
+}
