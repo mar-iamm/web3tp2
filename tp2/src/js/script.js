@@ -142,3 +142,57 @@ class Coder {
 }
 
 setTimeout(() => Coder.init(), 50);
+
+
+// ===========================
+// SONAR RADAR
+// ===========================
+
+const time = 2;
+const peopleCount = 20;
+const peoples = [];
+
+for (let i = 0; i < peopleCount; i++) {
+    peoples.push({
+        distance: Math.floor((Math.random() * 140) + 1),
+        angle: Math.floor((Math.random() * 360) + 1)
+    });
+}
+
+function initRadar() {
+    const radius = 150;
+    const guides = document.getElementById('guides');
+    const sonar = document.getElementById('sonar');
+
+    // Si la section n'est pas sur la page, on sort proprement
+    if (!guides || !sonar) return;
+
+    for (let i = 0; i < peoples.length; i++) {
+        const person = peoples[i];
+
+        const angleOffset = person.angle + 90;
+        const disX = (angleOffset > 90 && angleOffset < 270) ? radius - person.distance : radius;
+        const disY = (angleOffset > 180 && angleOffset < 360) ? radius - person.distance : radius;
+        const angleRad = angleOffset * Math.PI / 180;
+
+        const getDegX = disX + person.distance - Math.round(person.distance * Math.cos(angleRad));
+        const getDegY = disY + person.distance - Math.round(person.distance * Math.sin(angleRad));
+        const delay = time / radius * (person.distance + 5);
+
+        const dot = document.createElement('span');
+        dot.className = 'dot';
+        dot.style.left = getDegX + 'px';
+        dot.style.top = getDegY + 'px';
+        dot.style.animationDelay = delay + 's';
+        dot.style.webkitAnimationDelay = delay + 's';
+        dot.dataset.atDeg = person.angle;
+
+        guides.appendChild(dot);
+    }
+
+    sonar.classList.add('animated');
+}
+
+// Lance le radar quand le DOM est prêt
+document.addEventListener('DOMContentLoaded', initRadar);
+

@@ -5,13 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TP2</title>
 
-    <!-- CSS -->
     <link href="https://esm.sh/maplibre-gl@5.13.0/dist/maplibre-gl.css" rel="stylesheet" />
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="./src/css/style.css">
 
-    <!-- JS -->
     <script type="importmap">
         {
             "imports": {            
@@ -35,7 +33,7 @@
 <script type="module" src="./src/js/tonejs.js"></script>
 <body>
 
-    <!-- PERSONNAGE -->
+    <!-- personnage -->
     <div class="personnage">
         <img src="./assets/img/personnage.png" id="personnage">
 
@@ -49,13 +47,12 @@
         <img src="./assets/img/haut_gauche.png" id="hautgauche">
     </div>
 
-    <!-- UI -->
     <div class="ui-layer">
         <div class="container-fluid mt-5 content-layout">
 
             <div class="row g-3 full-height-row">
 
-                <!-- COLONNE GAUCHE -->
+                <!-- colonne gauche -->
                 <div class="col-2 left-col">
                     <div class="placeholder">
                         <div class="map-col">
@@ -63,19 +60,48 @@
                             <div id="carte"></div>
                         </div>
                     </div>
-
-                    <div class="placeholder">Icônes et boutons</div>
+                        <div class="placeholder">
+                         <div class="sonar-title">Subject Surroundings</div>
+                            <div class="sonar-wrapper">
+                                <div id="sonar">
+                                    <i>
+                                        <i></i>
+                                    </i>
+                                    <div id="guides">
+                                        <div class="line"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     <div class="left-bottom">
-                        <div class="placeholder">Sliders</div>
+                        <div class="placeholder scan-panel">
+                        <div class="scan-title">Signal Calibration</div>
+                            <div class="scan-line">
+                                <i class="bi bi-broadcast-pin"></i>
+                                <input type="range" min="0" max="100" value="65">
+                                <span>Signal Strength</span>
+                            </div>
+
+                            <div class="scan-line">
+                                <i class="bi bi-wifi"></i>
+                                <input type="range" min="0" max="100" value="40">
+                                <span>Detection Range</span>
+                            </div>
+
+                            <div class="scan-line">
+                                <i class="bi bi-exclamation-triangle"></i>
+                                <input type="range" min="0" max="100" value="20">
+                                <span>Threat Level</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- COLONNE CENTRALE -->
+                <!-- colonne centrale -->
                 <div class="col-8 center-col">
 
                     <div class="placeholder">
 
-                        <!-- MODULE BINAIRE -->
                         <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 
                         <div class="binary-module main">
@@ -92,19 +118,17 @@
                     </div>
                 </div>
 
-                <!-- COLONNE DROITE -->
+                <!-- colonne droite -->
                 <div class="col-2 right-col">
                  <div class="placeholder image-box">
                     <div class="image-title">Rei Ayanami</div>
                         <div class="flip-card" id="rei-card">
                              <div class="flip-inner">
 
-                         <!-- Face avant -->
                          <div class="flip-front">
                              <img src="./assets/img/rei_ayanami.png" class="img-fluid rei-img">
                          </div>
 
-                        <!-- Face arrière -->
                         <div class="flip-back">
                               <img src="./assets/img/rei_ayanami_black.png" class="img-fluid rei-img">
                         </div>
@@ -129,6 +153,16 @@
         </div>
     </div>
 </div>
+
+<!-- texte défilant -->
+<div class="texte-defile">
+    <div class="texte-defile-content">
+        <span>Signal detected — Monitoring subject surroundings — Awaiting command input — </span>
+        <span>Signal detected — Monitoring subject surroundings — Awaiting command input — </span>
+        <span>Signal detected — Monitoring subject surroundings — Awaiting command input — </span>
+    </div>
+</div>
+
 
 </body>
 </html>

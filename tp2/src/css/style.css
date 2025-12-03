@@ -99,14 +99,6 @@ body::before {
     height: 100%;
 }
 
-.right-bottom,
-.left-bottom {
-    margin-top: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
 .center-col {
     display: flex;
     flex-direction: column;
@@ -139,6 +131,18 @@ body::before {
     gap: 15px;
     height: auto;
 }
+
+.left-bottom {
+    flex: 1;
+}
+
+.left-bottom .placeholder {
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 
 .placeholder .binary-module * {
     font-family: 'Fira Code', monospace;
@@ -199,7 +203,7 @@ body::before {
 #carte {
     width: 100%;
     height: 243px;
-    border-radius: 20px;
+    border-radius: 120px;
     overflow: hidden;
 }
 
@@ -326,3 +330,288 @@ body::before {
     -webkit-mask-composite: intersect;
     position: relative;
 }
+
+.sonar-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#sonar {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    background: #000000;
+    overflow: hidden;
+    border: 2px solid #67B2D8;
+    border-radius: 300px;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+}
+
+#sonar:before,
+#sonar:after {
+    content: '';
+    background: rgba(103, 178, 216, 0.15);
+    position: absolute;
+    margin: auto;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
+#sonar:before {
+    width: 1px;
+}
+#sonar:after {
+    height: 1px;
+}
+
+#sonar i {
+    display: block;
+    margin: 50px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    border: 1px solid rgba(103, 178, 216, 0.15);
+    border-radius: 300px;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+}
+
+.sonar-title {
+    font-family: 'Fira Code', monospace !important;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+
+#sonar > i:before {
+    content: '';
+    position: absolute;
+    margin: auto;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    height: 0;
+    width: 0;
+    border-style: solid;
+    border-color: #67B2D8 transparent;
+    border-width: 0 5px 15px;
+}
+
+#sonar.animated .dot {
+    background: #67B2D8;
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    margin-top: -2px;
+    margin-left: -2px;
+    opacity: 0.3;
+    border-radius: 4px;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    -webkit-box-shadow: 0 0 3px 4px #67B2D8;
+    box-shadow: 0 0 3px 4px #67B2D8;
+    -webkit-animation: dot_pulse linear 2s infinite;
+    animation: dot_pulse linear 2s infinite;
+}
+
+#sonar.animated .line {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    z-index: 999;
+    width: 6px;
+    height: 6px;
+    border-radius: 300px;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    -webkit-animation: sonar 2s infinite linear;
+    animation: sonar 2s infinite linear;
+    -webkit-box-shadow: inset 0 0 25px 5px rgba(103, 178, 216, 0.5);
+    box-shadow: inset 0 0 25px 5px rgba(103, 178, 216, 0.5);
+}
+
+#guides {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
+
+@keyframes sonar {
+    from {
+        width: 5px;
+        height: 5px;
+    }
+    to {
+        width: 300px;
+        height: 300px;
+    }
+}
+@-moz-keyframes sonar {
+    from {
+        width: 5px;
+        height: 5px;
+    }
+    to {
+        width: 300px;
+        height: 300px;
+    }
+}
+@-webkit-keyframes sonar {
+    from {
+        width: 5px;
+        height: 5px;
+    }
+    to {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@keyframes dot_pulse {
+    0% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 0.1;
+    }
+    100% {
+        opacity: 0.1;
+    }
+}
+@-moz-keyframes dot_pulse {
+    0% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 0.1;
+    }
+    100% {
+        opacity: 0.1;
+    }
+}
+@-webkit-keyframes dot_pulse {
+    0% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 0.1;
+    }
+    100% {
+        opacity: 0.1;
+    }
+}
+
+.texte-defile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    overflow: hidden;
+    background: rgba(10, 10, 10, 0.85);
+    z-index: 5000;
+    display: flex;
+    align-items: center;
+}
+
+.texte-defile-content {
+    display: flex;
+    gap: 60px;
+    white-space: nowrap;
+    animation: texte-slide 20s linear infinite;
+}
+
+.texte-defile-content span {
+    font-family: 'Fira Code', monospace;
+    font-size: 14px;
+    color: #67B2D8;
+    letter-spacing: 1px;
+    text-shadow: 0 0 6px rgba(103,178,216,0.7);
+}
+
+@keyframes texte-slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.scan-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px;
+    height: 100%;
+    width: 100%;
+}
+
+.scan-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    font-family: 'Fira Code', monospace;
+    font-size: 12px;
+}
+
+.scan-line i {
+    font-size: 18px;
+    color: white;
+    text-shadow: 0 0 6px rgba(103,178,216,0.7);
+}
+
+.scan-line span {
+    flex: 1;
+    color: white;
+    text-align: right;
+}
+
+.scan-line input[type=range] {
+    appearance: none;
+    width: 130px;
+    height: 4px;
+    background: white;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+}
+.scan-line input[type=range]::-webkit-slider-thumb {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(103,178,216,0.7);
+}
+.scan-line input[type=range]::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(103,178,216,0.7);
+}
+
+.scan-title {
+    font-family: 'Fira Code', monospace;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    margin-bottom: 12px;
+    text-shadow: 0 0 6px rgba(103,178,216,0.7);
+}
+
